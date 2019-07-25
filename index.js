@@ -1,0 +1,43 @@
+const tessel = require('tessel')
+const termalPrinter = require('tessel-thermalprinter')
+const pattern = require('./src/tessel-pattern')
+const blink = require('./src/tessel-blink')
+
+const printer = termalPrinter.use(tessel.port['A'])
+console.log('waiting for printer')
+
+printer.on('ready', () => {
+  console.log('printer ready')
+  blink(tessel)
+
+  printer
+    .center()
+    .bold(true)
+    .lineFeed(2)
+    .horizontalLine(32)
+    .lineFeed(1)
+    .inverse(true)
+    .big(true)
+    .printLine(' Fridge Receipt ')
+    .big(false)
+    .inverse(false)
+    .left(true)
+    .lineFeed(1)
+    .printLine(`Date: ____________________`)
+    .lineFeed(1)
+    .printLine('Food:')
+    .lineFeed(7)
+    .horizontalLine(32)
+    .center()
+    .printLine('[ ] Randy [ ] Jesse [ ] George')
+    .printLine('[ ] Tina [ ] For Grabs')
+    .lineFeed(1)
+    .horizontalLine(32)
+    .lineFeed(5)
+    .print(function() {
+      console.log('Printer Finished')
+      pattern(tessel)
+      process.exit()
+    })
+})
+

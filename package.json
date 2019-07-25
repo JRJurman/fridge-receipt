@@ -1,0 +1,25 @@
+{
+  "name": "fridge-receipt",
+  "version": "1.1.0",
+  "description": "",
+  "scripts": {
+    "start": "t2 run index.js",
+    "push": "t2 push --full --usb index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JRJurman/fridge-receipt.git"
+  },
+  "author": {
+    "name": "Jesse Jurman",
+    "email": "j.r.jurman@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JRJurman/fridge-receipt/issues"
+  },
+  "homepage": "https://github.com/JRJurman/fridge-receipt#readme",
+  "dependencies": {
+    "tessel-thermalprinter": "^0.3.0"
+  }
+}
